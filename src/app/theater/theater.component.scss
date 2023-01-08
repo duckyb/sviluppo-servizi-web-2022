@@ -1,0 +1,68 @@
+@import '../styles/variables.scss';
+
+.theater {
+
+    padding: $space * 3;
+
+    &__seat-name-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        max-width: 400px;
+    }
+    
+    &__seat-name {
+        min-height: 35px;
+        min-width: 400px;
+        background-color: $neutral-60;
+        color: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: $border-radius;
+    }
+
+    &__platea {
+        padding-bottom: $space;
+
+        .theater__seat:nth-child(5) {
+            margin-right: $space * 3;
+        }
+    }
+
+    &__palchi {
+        display: flex;
+        justify-content: center;
+
+        .theater__row {
+            max-width: 100px;
+            margin: 0 $space;
+        }
+    }
+
+    &__row {
+        display: flex;
+        justify-content: center;
+        gap: $space;
+        padding-bottom: $space;
+        flex-wrap: wrap;
+    }
+
+    &__seat {
+        width: 25px;
+        height: 25px;
+        border: 1px solid $neutral-30;
+        border-radius: 35% 35% $border-radius $border-radius;
+        cursor: pointer;
+
+        &.booked {
+            background-color: $neutral-10;
+            border: 1px solid $neutral-40;
+        }
+
+        &.selected {
+            background-color: inherit;
+            border: 2px solid $neutral-60;
+        }
+    }
+}

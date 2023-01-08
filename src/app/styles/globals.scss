@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+    font-family: $font-family-main;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    background-color: $neutral-05;
+    padding: $space * 3;
+    border: 1px solid $neutral-10;
+    margin: 0 auto;
+    border-radius: $border-radius;
+    @include card-shadow;
+}
+
+button {
+    @include button-reset;
+}

@@ -1,0 +1,93 @@
+/* ------------------------------------ *\
+   #PRIMARY
+\* ------------------------------------ */
+$color-brand: #7f62ca;
+
+/* ------------------------------------ *\
+#SECONDARY
+\* ------------------------------------ */
+$color-accent: #2e5bff;
+$color-third: #f5a623;
+
+/* ------------------------------------ *\
+   #NEUTRALS
+\* ------------------------------------ */
+$neutral-05: #ECEFF1;
+$neutral-10: #CFD8DC;
+$neutral-20: #B0BEC5;
+$neutral-30: #90A4AE;
+$neutral-40: #78909C;
+$neutral-50: #607D8B;
+$neutral-60: #546E7A;
+$neutral-70: #455A64;
+$neutral-80: #37474F;
+$neutral-90: #263238;
+// b&w
+$white: #FFFFFF;
+$black: #000000;
+
+/* ------------------------------------ *\
+   #SEMANTIC
+\* ------------------------------------ */
+$color-error: #d12c47;
+$color-warn: #fabb03;
+$color-success: #34a853;
+$color-info: #4285f4;
+
+/* ------------------------------------ *\
+   #SPACING & SHAPES
+\* ------------------------------------ */
+$space: 8px;
+$border-radius: 3px;
+
+/* ------------------------------------ *\
+   #TYPOGRAPHY
+\* ------------------------------------ */
+// Font family
+$font-family-main: 'Nunito Sans', sans-serif;
+$font-family-headings: 'Nunito Sans', sans-serif;
+// Font size
+$font-size-xxxl: 38px;
+$font-size-xxl: 30px;
+$font-size-xl: 26px;
+$font-size-l: 18px;
+$font-size-m: 16px;
+$font-size-s: 14px;
+$font-size-xs: 12px;
+// Font weight
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+/* ------------------------------------ *\
+   #MIXINS
+\* ------------------------------------ */
+@mixin card-shadow {
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 4px;
+}
+
+@mixin input-reset {
+   padding: $space;
+   border: 1px solid $neutral-20;
+   border-radius: $border-radius;
+   &:focus {
+      outline: none;
+   }
+}
+
+@mixin button-reset {
+   border-radius: $border-radius;
+   padding: $space $space * 4;
+   min-width: 100px;
+   border: 1px solid $neutral-20;
+   @include default-transition;
+   &:hover {
+      border: 1px solid $neutral-40;
+   }
+   &:active {
+      background-color: $neutral-10;
+   }
+}
+
+@mixin default-transition {
+   transition: 125ms;
+}

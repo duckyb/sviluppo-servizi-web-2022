@@ -1,0 +1,35 @@
+<div class="theater" *ngIf="data">
+    <section class="theater__seat-name-wrapper">
+        <h1 class="theater__seat-name">
+            {{ displayName || 'Posto libero' }}
+        </h1>
+    </section>
+
+    <section class="theater__wrapper" (mouseleave)="clearName()">
+        <div class="theater__platea" *ngIf="data.platea as platea">
+            <div class="theater__row" *ngFor="let plateaRow of platea; let rowID = index">
+                <ng-container *ngFor="let seat of plateaRow; let seatID = index">
+                    <div 
+                        class="theater__seat"
+                        [class.booked]="!!seat"
+                        [id]="'platea-'+rowID+'-'+seatID"
+                        (click)="onSeatClick($event)"
+                        (mouseenter)="onSeatHover($event)">
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div class="theater__palchi" *ngIf="data.palchi as palchi">
+            <div class="theater__row" *ngFor="let palchiRow of palchi; let rowID = index">
+                <ng-container *ngFor="let seat of palchiRow; let seatID = index">
+                    <div class="theater__seat"
+                        [class.booked]="!!seat"
+                        [id]="'palchi-'+rowID+'-'+seatID"
+                        (click)="onSeatClick($event)"
+                        (mouseenter)="onSeatHover($event)">
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </section>
+</div>

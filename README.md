@@ -1,27 +1,14 @@
-# SviluppoServiziWeb2022
+# Progetto d'esame "Sviluppo di Servizi Web"
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+Specifiche: https://elearning.humnet.unipi.it/mod/page/view.php?id=65746
 
-## Development server
+# Struttura dell'app
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Nell'app è presente un servizio Angular dedicato alle richieste API verso il backend (key-value as a service),
+La chiave (ID) del teatro è statica e viene usata dal servizio in tutte le chiamate API.
 
-## Code scaffolding
+Nel componente principale "APP", sono definiti il campo di inserimento del nome e gli unici due
+pulsanti presenti. Uno per salvare la prenotazione, l'altro per ripulire la sala da tutte le prenotazioni.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Il componente "theater" si occupa della gestione della UI dei posti del teatro e della selezione dei
+posti da prenotare. Oltre ad mostrare il nominativo associato a ciascuna prenotazione al passaggio del cursore.

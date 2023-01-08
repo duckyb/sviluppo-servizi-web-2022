@@ -37,6 +37,6 @@ export class TheaterComponent {
         row: +seatID[1],
         seat: +seatID[2],
       }
-    } return;
+    } return undefined;
   }
 }

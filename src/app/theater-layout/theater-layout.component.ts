@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService, DEFAULT_THEATER, isValidSection } from '../api.service';
 import { cloneObject } from '../helpers';
 import { TheaterSeats, SeatData } from '../types';
@@ -10,9 +11,11 @@ import { TheaterSeats, SeatData } from '../types';
 })
 export class TheaterLayoutComponent {
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private route: ActivatedRoute,
   ) {
     this.apiService = apiService;
+    this.route = route;
   }
 
   // two-way binding
@@ -25,7 +28,11 @@ export class TheaterLayoutComponent {
     if (savedUser) {
       this.username = savedUser;
     }
-    this.updateTheater();
+    this.route.params.subscribe((params) => {
+      const { id } = params;
+      this.apiService.setTheaterID(id);
+      this.updateTheater();
+    })
   }
 
   handleInputChange(event: any) {

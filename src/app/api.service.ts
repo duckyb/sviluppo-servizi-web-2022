@@ -29,6 +29,10 @@ export class ApiService {
 
   private theaterID = '79b39d2c';
 
+  setTheaterID(id) {
+    this.theaterID = id;
+  }
+
   resetTheater$() {
     console.log({DEFAULT_THEATER})
     return this.http.post(`${this.apiBaseUrl}set?key=${this.theaterID}`, DEFAULT_THEATER)

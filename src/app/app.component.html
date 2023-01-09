@@ -1,27 +1,5 @@
 <div class="app">
-    <h1 class="app__header">
-        BOX OFFICE
-    </h1>
-    <section class="app__actions">
-        <div class="app__actions-username card">
-            <div class="app__actions-username-form">
-                <label for="username">Name</label>
-                <input
-                    [(ngModel)]="username"
-                    type="text"
-                    name="username"
-                    id="username"
-                    (input)="handleInputChange($event)"
-                    >
-            </div>
-        </div>
-        <div class="app__actions-buttons card">
-            <!-- <button (click)="getTheater()">Get</button> -->
-            <button (click)="saveSelectedSeats()">Book Seats</button>
-            <button (click)="resetTheather()">Empty Theater</button>
-        </div>
-    </section>
-    <theater [data]="theaterUI"></theater>
+    app-layout
 </div>
 
 <router-outlet></router-outlet>

@@ -1,20 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
+import { SeatData, SeatSection, TheaterSeats } from './types';
 
-export type TheaterSeats = {
-  platea: Array<string[]>;
-  palchi: Array<string[]>;
-}
-
-export type SeatData = {
-  section: 'platea' | 'palchi';
-  row: number;
-  seat: number;
-}
-
-export function isValidSection(str: string): str is ('platea' | 'palchi') {
-  return str === 'platea' || str === 'palchi';
+export function isValidSection(str: string): str is SeatSection {
+  return (
+    str === SeatSection.PLATEA
+    || str === SeatSection.PALCHI
+  );
 }
 
 /**

@@ -1,0 +1,24 @@
+<div class="theater-layout">
+    <h1 class="theater-layout__header">
+        BOX OFFICE
+    </h1>
+    <section class="theater-layout__actions">
+        <div class="theater-layout__actions-username card">
+            <div class="theater-layout__actions-username-form">
+                <label for="username">Name</label>
+                <input
+                [(ngModel)]="username"
+                type="text"
+                name="username"
+                id="username"
+                (input)="handleInputChange($event)"
+                >
+            </div>
+        </div>
+        <div class="theater-layout__actions-buttons card">
+            <button (click)="saveSelectedSeats()">Book Seats</button>
+            <button (click)="resetTheather()">Empty Theater</button>
+        </div>
+    </section>
+    <theater [data]="theaterUI"></theater>
+</div>

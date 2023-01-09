@@ -6,11 +6,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TheaterComponent } from './theater/theater.component';
+import { TheaterLayoutComponent } from './theater-layout/theater-layout.component';
+import { SelectionLayoutComponent } from './selection-layout/selection-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TheaterComponent
+    TheaterComponent,
+    TheaterLayoutComponent,
+    SelectionLayoutComponent
   ],
   imports: [
     BrowserModule,

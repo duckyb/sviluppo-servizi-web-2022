@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { clone, cloneDeep } from 'lodash';
-import { DEFAULT_THEATER, SeatData, TheaterSeats } from '../api.service';
+import { DEFAULT_THEATER } from '../api.service';
+import { cloneObject } from '../helpers';
+import { SeatData, SeatSection, TheaterSeats } from '../types';
 
 @Component({
   selector: 'theater',
@@ -8,7 +9,7 @@ import { DEFAULT_THEATER, SeatData, TheaterSeats } from '../api.service';
   styleUrls: ['./theater.component.scss']
 })
 export class TheaterComponent {
-  @Input() data: TheaterSeats = cloneDeep(DEFAULT_THEATER);
+  @Input() data: TheaterSeats = cloneObject(DEFAULT_THEATER);
 
   public displayName: string = ' ';
 
@@ -33,7 +34,7 @@ export class TheaterComponent {
     const seatID = target.getAttribute('id')?.split('-')
     if (seatID?.length === 3) {
       return {
-        section: seatID[0] as ('platea' | 'palchi'),
+        section: seatID[0] as SeatSection,
         row: +seatID[1],
         seat: +seatID[2],
       }

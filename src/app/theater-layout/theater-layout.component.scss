@@ -1,0 +1,39 @@
+@import '../styles/variables.scss';
+
+.theater {
+    text-align: center;
+
+    &__actions {
+        display: flex;
+        flex-direction: column;
+        gap: $space;
+
+        input {
+            @include input-reset;
+        }
+
+        .card {
+            max-width: 400px;
+            width: 100%;
+        }
+
+        &-username {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &-username-form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: $space;
+        }
+
+        &-buttons {
+            display: flex;
+            gap: $space;
+            justify-content: space-around;
+        }
+    }
+}

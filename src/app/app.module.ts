@@ -10,6 +10,7 @@ import { TheaterLayoutComponent } from './theater-layout/theater-layout.componen
 import { SelectionLayoutComponent } from './selection-layout/selection-layout.component';
 import { TheaterActionsComponent } from './theater-actions/theater-actions.component';
 import { ViewNameComponent } from './view-name/view-name.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ViewNameComponent } from './view-name/view-name.component';
     TheaterLayoutComponent,
     SelectionLayoutComponent,
     TheaterActionsComponent,
-    ViewNameComponent
+    ViewNameComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

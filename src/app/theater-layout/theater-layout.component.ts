@@ -43,7 +43,7 @@ export class TheaterLayoutComponent {
     this.apiService.getSeats$().subscribe({
       next: (res: TheaterSeats) => {
         if (!res) {
-          this.resetTheather()
+          this.resetTheater()
         } else {
           this.theaterUI = res;
         }
@@ -76,7 +76,7 @@ export class TheaterLayoutComponent {
   /**
    * Empty out all of the strings from a theater, resetting the view
    */
-  resetTheather() {
+  resetTheater() {
     this.apiService.resetTheater$().subscribe(() => {
       this.theaterUI = cloneObject(DEFAULT_THEATER);
     })

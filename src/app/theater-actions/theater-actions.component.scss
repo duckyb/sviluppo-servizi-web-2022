@@ -1,0 +1,7 @@
+@import '../styles/variables.scss';
+
+.theater-actions__buttons {
+    display: flex;
+    gap: $space;
+    justify-content: space-around;
+}

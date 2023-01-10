@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { TheaterComponent } from './theater/theater.component';
 import { TheaterLayoutComponent } from './theater-layout/theater-layout.component';
 import { SelectionLayoutComponent } from './selection-layout/selection-layout.component';
+import { TheaterActionsComponent } from './theater-actions/theater-actions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TheaterComponent,
     TheaterLayoutComponent,
-    SelectionLayoutComponent
+    SelectionLayoutComponent,
+    TheaterActionsComponent
   ],
   imports: [
     BrowserModule,

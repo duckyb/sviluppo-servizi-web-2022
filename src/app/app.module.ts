@@ -13,6 +13,7 @@ import { ViewNameComponent } from './view-name/view-name.component';
 import { HeaderComponent } from './header/header.component';
 import { TheaterSelectorComponent } from './theater-selector/theater-selector.component';
 import { ButtonComponent } from './button/button.component';
+import { UsernameInputComponent } from './username-input/username-input.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ButtonComponent } from './button/button.component';
     ViewNameComponent,
     HeaderComponent,
     TheaterSelectorComponent,
-    ButtonComponent
+    ButtonComponent,
+    UsernameInputComponent
   ],
   imports: [
     BrowserModule,

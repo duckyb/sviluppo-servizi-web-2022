@@ -36,6 +36,11 @@ export class TheaterLayoutComponent {
     })
   }
 
+  onNameChange(newName: string) {
+    console.log(newName)
+    this.username = newName;
+  }
+
   /**
    * Write data to the theater
    */

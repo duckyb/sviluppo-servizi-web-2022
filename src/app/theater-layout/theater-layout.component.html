@@ -3,16 +3,7 @@
         BOX OFFICE
     </h1>
     <section class="theater-layout__actions">
-        <div class="theater-layout__actions-username card">
-            <div class="theater-layout__actions-username-form">
-                <label for="username">Name</label>
-                <input
-                [(ngModel)]="username"
-                type="text"
-                name="username"
-                id="username">
-            </div>
-        </div>
+        <username-input (onChange)="onNameChange($event)"></username-input>
         <theater-actions
             (saveSeats)="saveSelectedSeats()"
             (resetSeats)="resetTheater()">

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, mergeMap, Observable, of } from 'rxjs';
 import { SeatData, SeatSection, TheaterSeats } from './types';
 
 export function isValidSection(str: string): str is SeatSection {
@@ -29,12 +29,15 @@ export class ApiService {
 
   private theaterID = '79b39d2c';
 
+  public theaterList = new BehaviorSubject<string[]>([]);
+
+  private theaterListID = '4bbb426d';
+
   setTheaterID(id) {
     this.theaterID = id;
   }
 
   resetTheater$() {
-    console.log({DEFAULT_THEATER})
     return this.http.post(`${this.apiBaseUrl}set?key=${this.theaterID}`, DEFAULT_THEATER)
   }
 
@@ -44,7 +47,7 @@ export class ApiService {
       .pipe(map((res: string) => JSON.parse(res)))
   }
 
-  updateTheater$(newTheater: TheaterSeats) {
+  private updateTheater$(newTheater: TheaterSeats) {
     return this.http
       .post(
         `${this.apiBaseUrl}set?key=${this.theaterID}`,
@@ -62,5 +65,43 @@ export class ApiService {
       newTheater[s.section][s.row][s.seat] = name;
     })
     return this.updateTheater$(theater)
+  }
+
+  getTheaters$(): Observable<string[]> {
+    return this.http
+      .get<string>(`${this.apiBaseUrl}get?key=${this.theaterListID}`)
+      .pipe(map((res: string) => {
+        const theaters = JSON.parse(res);
+        this.theaterList.next(theaters);
+        return theaters;
+      }))
+  }
+
+  private createKey$(): Observable<string> {
+    return this.http.get<string>(`${this.apiBaseUrl}new?secret=ssw2022`)
+  }
+
+  private addTheater$(key:string) {
+    // never add a key to remote without also adding it locally
+    const tl = this.theaterList.getValue();
+    this.theaterList.next([...tl, key])
+    // update the backend
+    return this.http
+      .post(
+        `${this.apiBaseUrl}set?key=${this.theaterListID}`,
+        this.theaterList
+      )
+  }
+
+  createTheater$() {
+    // create a new key storage (theater)
+    return this.createKey$().pipe(
+      mergeMap((key:string) => {
+        // save the new theater
+        return this.addTheater$(key)
+          // emit the new key on success
+          .pipe(map(() => key))
+      })
+    )
   }
 }

@@ -1,1 +1,12 @@
-<p>selection-layout works!</p>
+<div class="section-layout">
+    <button (click)="onCreateTheater()">Create New Theater</button>
+    <br/>
+    <ng-container *ngFor="let theaterID of theaters">
+        <a routerLink="/{{theaterID}}" class="section-layout__theater-wrapper">
+            <button class="section-layout__theater">
+                View theater #{{theaterID}}
+            </button>
+        </a>
+    </ng-container>
+    
+</div>

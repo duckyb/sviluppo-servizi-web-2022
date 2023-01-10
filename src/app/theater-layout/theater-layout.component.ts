@@ -35,13 +35,6 @@ export class TheaterLayoutComponent {
     })
   }
 
-  handleInputChange(event: any) {
-    this.username = event.target.value;
-    if (typeof this.username === 'string' && this.username.length > 0) {
-      localStorage.setItem('username', this.username);
-    }
-  }
-
   updateTheater() {
     this.apiService.getSeats$().subscribe({
       next: (res: TheaterSeats) => {

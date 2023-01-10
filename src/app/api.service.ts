@@ -25,22 +25,35 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  /** KVaaS endpoint */
   private apiBaseUrl = 'https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint/';
 
-  private theaterID = '79b39d2c';
+  /** key used in all theater requests */
+  private theaterID = '';
 
+  /** Subscribable list of theater IDs */
   public theaterList = new BehaviorSubject<string[]>([]);
 
+  /** The key where we store the list of theaters */
   private theaterListID = '4bbb426d';
 
+  /**
+   * Set the theater's key which will be used for all of the theater requests
+   */
   setTheaterID(id) {
     this.theaterID = id;
   }
 
+  /**
+   * Resets the theater to it's default value
+   */
   resetTheater$() {
     return this.http.post(`${this.apiBaseUrl}set?key=${this.theaterID}`, DEFAULT_THEATER)
   }
 
+  /**
+   * Returns the parsed data of the theater
+   */
   getSeats$(): Observable<TheaterSeats> {
     return this.http
       .get<string>(`${this.apiBaseUrl}get?key=${this.theaterID}`)
@@ -55,6 +68,13 @@ export class ApiService {
       )
   }
 
+  /**
+   * Facilitates updating the existing data of a theater
+   * 
+   * @param theater the starting state of the theater
+   * @param seats the seats to add
+   * @param name the username to use for the booking
+   */
   setSeats$(
     theater: TheaterSeats,
     seats: SeatData[],
@@ -67,6 +87,9 @@ export class ApiService {
     return this.updateTheater$(theater)
   }
 
+  /**
+   * Get the list of all of our theaters
+   */
   getTheaters$(): Observable<string[]> {
     return this.http
       .get<string>(`${this.apiBaseUrl}get?key=${this.theaterListID}`)
@@ -77,16 +100,20 @@ export class ApiService {
       }))
   }
 
+  /**
+   * Create a new key storage
+   */
   private createKey$(): Observable<string> {
     return this.http.get<string>(`${this.apiBaseUrl}new?secret=ssw2022`)
   }
 
+  /**
+   * Creates a new theater and adds it to our list
+   */
   private addTheater$(key:string) {
     // never add a key to remote without also adding it locally
     const tl = this.theaterList.getValue();
     this.theaterList.next([...tl, key])
-    // initialize the theater
-
     // update the backend
     return this.http
       .post(
@@ -95,6 +122,9 @@ export class ApiService {
       )
   }
 
+  /**
+   * Removes a theater from our list
+   */
   removeTheater$(key:string) {
     const theaters = this.theaterList.getValue();
     const index = theaters.indexOf(key);
@@ -109,6 +139,10 @@ export class ApiService {
       )
   }
 
+  /**
+   * Creates a new theater, emits the new
+   * theaterID on success.
+   */
   createTheater$() {
     // create a new key storage (theater)
     return this.createKey$().pipe(

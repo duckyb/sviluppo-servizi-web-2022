@@ -23,18 +23,22 @@ export class TheaterLayoutComponent {
 
   public theaterUI = cloneObject(DEFAULT_THEATER);
 
+  /**
+   * Fetch the initial view of the theater
+   */
   ngOnInit(): void {
-    const savedUser = localStorage.getItem('username');
-    if (savedUser) {
-      this.username = savedUser;
-    }
     this.route.params.subscribe((params) => {
       const { id } = params;
+      // set the theater key based on the page URL
       this.apiService.setTheaterID(id);
+      // initialize the view
       this.updateTheater();
     })
   }
 
+  /**
+   * Write data to the theater
+   */
   updateTheater() {
     this.apiService.getSeats$().subscribe({
       next: (res: TheaterSeats) => {
@@ -47,6 +51,9 @@ export class TheaterLayoutComponent {
     })
   }
 
+  /**
+   * Find all selected seats, and save the username in each seat's assigned string
+   */
   saveSelectedSeats() {
     if (this.username.length < 1) return;
     const selectedSeats = Array.from(document.querySelectorAll('.selected'));
@@ -66,6 +73,9 @@ export class TheaterLayoutComponent {
     })
   }
 
+  /**
+   * Empty out all of the strings from a theater, resetting the view
+   */
   resetTheather() {
     this.apiService.resetTheater$().subscribe(() => {
       this.theaterUI = cloneObject(DEFAULT_THEATER);

@@ -85,11 +85,27 @@ export class ApiService {
     // never add a key to remote without also adding it locally
     const tl = this.theaterList.getValue();
     this.theaterList.next([...tl, key])
+    // initialize the theater
+
     // update the backend
     return this.http
       .post(
         `${this.apiBaseUrl}set?key=${this.theaterListID}`,
-        this.theaterList
+        this.theaterList.getValue()
+      )
+  }
+
+  removeTheater$(key:string) {
+    const theaters = this.theaterList.getValue();
+    const index = theaters.indexOf(key);
+    if (index > -1) {
+      theaters.splice(index, 1)
+      this.theaterList.next(theaters)
+    }
+    return this.http
+      .post(
+        `${this.apiBaseUrl}set?key=${this.theaterListID}`,
+        this.theaterList.getValue()
       )
   }
 

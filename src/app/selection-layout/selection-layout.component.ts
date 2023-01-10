@@ -18,6 +18,7 @@ export class SelectionLayoutComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.getTheaters$().subscribe(() => {
         this.apiService.theaterList.subscribe(d => {
+          console.log('new theater list', d)
           this.theaters = d;
         })
       }
@@ -25,6 +26,15 @@ export class SelectionLayoutComponent implements OnInit {
   }
 
   onCreateTheater() {
-    this.apiService.createTheater$()
+    this.apiService
+      .createTheater$()
+      .subscribe()
+  }
+
+  onDeleteTheater(key: string) {
+    console.log('delete', key)
+    this.apiService
+      .removeTheater$(key)
+      .subscribe()
   }
 }

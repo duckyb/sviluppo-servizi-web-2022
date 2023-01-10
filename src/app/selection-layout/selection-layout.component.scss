@@ -8,6 +8,13 @@
     margin: 0 auto;
     padding: $space * 4;
 
+    &__theater-item {
+        display: flex;
+        gap: $space * .5;
+        width: 100%;
+        margin: $space * .5 0;
+    }
+
     &__theater-wrapper {
         color: inherit;
         text-decoration: none;
@@ -16,7 +23,6 @@
 
     &__theater {
         width: 100%;
-        margin: $space * .5 0;
         cursor: inherit;
     }
 }

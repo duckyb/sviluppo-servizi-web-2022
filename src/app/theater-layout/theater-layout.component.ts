@@ -38,7 +38,11 @@ export class TheaterLayoutComponent {
   updateTheater() {
     this.apiService.getSeats$().subscribe({
       next: (res: TheaterSeats) => {
-        this.theaterUI = res;
+        if (!res) {
+          this.resetTheather()
+        } else {
+          this.theaterUI = res;
+        }
       }
     })
   }

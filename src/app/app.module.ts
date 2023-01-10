@@ -11,6 +11,7 @@ import { SelectionLayoutComponent } from './selection-layout/selection-layout.co
 import { TheaterActionsComponent } from './theater-actions/theater-actions.component';
 import { ViewNameComponent } from './view-name/view-name.component';
 import { HeaderComponent } from './header/header.component';
+import { TheaterSelectorComponent } from './theater-selector/theater-selector.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HeaderComponent } from './header/header.component';
     SelectionLayoutComponent,
     TheaterActionsComponent,
     ViewNameComponent,
-    HeaderComponent
+    HeaderComponent,
+    TheaterSelectorComponent
   ],
   imports: [
     BrowserModule,

@@ -2,14 +2,9 @@
     <button (click)="onCreateTheater()">Create New Theater</button>
     <br/>
     <ng-container *ngFor="let theaterID of theaters">
-        <div class="section-layout__theater-item">
-            <a routerLink="/{{theaterID}}" class="section-layout__theater-wrapper">
-                <button class="section-layout__theater">
-                    View theater #{{theaterID}}
-                </button>
-            </a>
-            <button (click)="onDeleteTheater(theaterID)">Delete</button>
-        </div>
+        <theater-selector
+            [theaterID]="theaterID"
+            (onDelete)="onDeleteTheater(theaterID)">
+        </theater-selector>
     </ng-container>
-    
 </div>

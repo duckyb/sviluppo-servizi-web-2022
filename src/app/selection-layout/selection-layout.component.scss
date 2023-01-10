@@ -8,6 +8,10 @@
     margin: 0 auto;
     padding: $space * 4;
 
+    app-button {
+        margin-bottom: $space * 2;
+    }
+
     theater-selector {
         width: 100%;
         margin-bottom: $space;

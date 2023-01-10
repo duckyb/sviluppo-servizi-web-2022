@@ -4,8 +4,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
   selector: 'theater-actions',
   template: `
     <div class="theater-actions__buttons card">
-      <button (click)="saveSeats.emit()">Book Seats</button>
-      <button (click)="resetSeats.emit()">Empty Theater</button>
+      <app-button (click)="saveSeats.emit()">Book Seats</app-button>
+      <app-button (click)="resetSeats.emit()">Empty Theater</app-button>
     </div>`,
   styleUrls: ['./theater-actions.component.scss']
 })

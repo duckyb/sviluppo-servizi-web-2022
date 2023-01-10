@@ -17,7 +17,3 @@ body {
     border-radius: $border-radius;
     @include card-shadow;
 }
-
-button {
-    @include button-reset;
-}

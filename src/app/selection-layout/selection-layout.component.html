@@ -1,6 +1,7 @@
 <div class="section-layout">
-    <button (click)="onCreateTheater()">Create New Theater</button>
-    <br/>
+    <app-button (click)="onCreateTheater()">
+        Create New Theater
+    </app-button>
     <ng-container *ngFor="let theaterID of theaters">
         <theater-selector
             [theaterID]="theaterID"

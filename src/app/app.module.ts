@@ -12,6 +12,7 @@ import { TheaterActionsComponent } from './theater-actions/theater-actions.compo
 import { ViewNameComponent } from './view-name/view-name.component';
 import { HeaderComponent } from './header/header.component';
 import { TheaterSelectorComponent } from './theater-selector/theater-selector.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TheaterSelectorComponent } from './theater-selector/theater-selector.co
     TheaterActionsComponent,
     ViewNameComponent,
     HeaderComponent,
-    TheaterSelectorComponent
+    TheaterSelectorComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

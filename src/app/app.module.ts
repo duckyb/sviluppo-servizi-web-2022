@@ -9,6 +9,7 @@ import { TheaterComponent } from './theater/theater.component';
 import { TheaterLayoutComponent } from './theater-layout/theater-layout.component';
 import { SelectionLayoutComponent } from './selection-layout/selection-layout.component';
 import { TheaterActionsComponent } from './theater-actions/theater-actions.component';
+import { ViewNameComponent } from './view-name/view-name.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TheaterActionsComponent } from './theater-actions/theater-actions.compo
     TheaterComponent,
     TheaterLayoutComponent,
     SelectionLayoutComponent,
-    TheaterActionsComponent
+    TheaterActionsComponent,
+    ViewNameComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,5 @@
 <div class="theater" *ngIf="data">
-    <section class="theater__seat-name-wrapper">
-        <h1 class="theater__seat-name">
-            {{ displayName || 'Posto libero' }}
-        </h1>
-    </section>
+    <view-name [name]="displayName"></view-name>
 
     <section class="theater__wrapper" (mouseleave)="clearName()">
         <div class="theater__platea" *ngIf="data.platea as platea">

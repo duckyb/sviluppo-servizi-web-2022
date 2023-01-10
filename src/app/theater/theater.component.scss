@@ -4,24 +4,6 @@
 
     padding: $space * 3;
 
-    &__seat-name-wrapper {
-        display: flex;
-        justify-content: center;
-        margin: 0 auto;
-        max-width: 400px;
-    }
-    
-    &__seat-name {
-        min-height: 35px;
-        min-width: 400px;
-        background-color: $neutral-60;
-        color: $white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: $border-radius;
-    }
-
     &__platea {
         padding-bottom: $space;
 
